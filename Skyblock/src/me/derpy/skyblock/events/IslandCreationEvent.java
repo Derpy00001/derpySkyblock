@@ -17,7 +17,6 @@ public class IslandCreationEvent extends Event implements Cancellable{
 		super(isAsync);
 		this.islander=islander;
 		this.id=islandId;
-		Console.print(Integer.toString(this.id)+"|"+Integer.toString(islandId));
 	}
 	@Override
 	public HandlerList getHandlers() {
@@ -31,7 +30,6 @@ public class IslandCreationEvent extends Event implements Cancellable{
 		return this.islander;
 	}
 	public int getIslandTypeId() {
-		Console.print(Integer.toString(this.id));
 		return this.id;
 	}
 	public void setIslandTypeId(int i) {

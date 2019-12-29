@@ -150,66 +150,6 @@ public class IslandCommand implements CommandExecutor, TabCompleter{
 					}else {
 						islander.getOfflinePlayer().getPlayer().sendMessage(ChatColor.RED+"You do not have an island!");
 					}
-				}else if(arg3[0].toLowerCase().equals("showcase")) {
-					if(arg3[1].toLowerCase().equals("fakeinvite")) {
-						try {
-							islander.sendInvite(Island.getIsland("Island_a4dcf21d-687e-4e25-9199-d6be70025c45"));
-						} catch (UserHasIslandException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (UserInvitationListException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (IslandException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (IslandInvitationException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (UserAlreadyHasInvite e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}else if(arg3[1].toLowerCase().equals("removefakeisland")) {
-						IslandCreator.deleteIsland(UUID.fromString("a4dcf21d-687e-4e25-9199-d6be70025c45"));
-					}
-				}else if(arg3[1].toLowerCase().equals("sendfake")) {
-					try {
-						Islander.getUser(UUID.fromString("07bf278e-21aa-4898-bd5b-83a2c219a1ab")).sendInvite(islander.getIsland());
-					} catch (UserHasIslandException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (UserInvitationListException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IslandException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IslandInvitationException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (UserHasNoIslandException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (UserAlreadyHasInvite e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}else if(arg3[1].toLowerCase().equals("acceptfake")) {
-					try {
-						Islander.getUser(UUID.fromString("07bf278e-21aa-4898-bd5b-83a2c219a1ab")).handleInvite(islander.getIsland(), InvitationResult.FORCE, new InviteData(UUID.fromString("a4dcf21d-687e-4e25-9199-d6be70025c45"), islander.getIsland().getId(), InvitationType.ISLAND));
-					} catch (UserHasIslandException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IslandInvitationException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (UserHasNoIslandException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}else if(arg3[1].toLowerCase().equals("createfake")) {
-					IslandCreator.createIsland(Islander.getUser(UUID.fromString("a4dcf21d-687e-4e25-9199-d6be70025c45")), 2);
 				}
 			}
 		}else {
@@ -246,32 +186,10 @@ public class IslandCommand implements CommandExecutor, TabCompleter{
 			available.add("home");
 			available.add("balance");
 			available.add("level");
-			available.add("showcase");
 			ArrayList<String> choices = new ArrayList<String>();
 			if (!arg3[0].equals("")) {
 				for(String type: available) {
 					if (type.toLowerCase().contains(arg3[0].toLowerCase())) {
-						choices.add(type.toLowerCase());
-					}
-				}
-			}else {
-				for(String type: available) {
-						choices.add(type.toLowerCase());
-				}
-			}
-			Collections.sort(choices);
-			return choices;
-		}else if(arg3.length==2) {
-			ArrayList<String> available = new ArrayList<String>();
-			available.add("fakeinvite");
-			available.add("sendfake");
-			available.add("acceptfake");
-			available.add("removefakeisland");
-			available.add("createfake");
-			ArrayList<String> choices = new ArrayList<String>();
-			if (!arg3[0].equals("")) {
-				for(String type: available) {
-					if (type.toLowerCase().contains(arg3[1].toLowerCase())) {
 						choices.add(type.toLowerCase());
 					}
 				}

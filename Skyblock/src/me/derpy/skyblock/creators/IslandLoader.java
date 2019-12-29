@@ -15,14 +15,11 @@ import net.md_5.bungee.api.ChatColor;
 public class IslandLoader {
 	private static Skyblock plugin = Skyblock.getPlugin(Skyblock.class);
 	public static World load(String worldname) {
-		Console.print(worldname);
 		for(World world:Bukkit.getServer().getWorlds()) {
 			if(world.getName().equals(worldname)) {
-				Console.print("Returning world");
 				return world;
 			}
 		}
-		Console.print("Loading "+worldname);
 		World world = new WorldCreator(worldname).createWorld();
 		world.setKeepSpawnInMemory(false);
 		world.setAutoSave(false);

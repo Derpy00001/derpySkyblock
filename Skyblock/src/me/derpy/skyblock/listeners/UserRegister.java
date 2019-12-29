@@ -12,19 +12,33 @@ import me.derpy.skyblock.exceptions.UserHasNoIslandException;
 import me.derpy.skyblock.extra.Extras;
 import me.derpy.skyblock.extra.scoreboard.Board;
 import me.derpy.skyblock.extra.scoreboard.BoardManager;
+import me.derpy.skyblock.objects.Permissions;
 import me.derpy.skyblock.objects.main.Islander;
+import me.derpy.skyblock.utils.Console;
 public class UserRegister implements Listener{
 	@EventHandler
 	public void onLogin(PlayerLoginEvent e) {
 		OfflinePlayer p = e.getPlayer();
 		if(p!=null) {
+			Islander islander = Islander.getUser(p);
 			if(Islander.getUser(p).hasIsland()) {
 				try {
-					Islander islander = Islander.getUser(p);
 					IslandLoader.load(islander.getIsland().getName());
 				} catch (UserHasNoIslandException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				}
+			}
+			if(islander.getSettings().isBuildBypass()) {
+				if(!islander.getOfflinePlayer().getPlayer().hasPermission(Permissions.Operator.islandBuildBypass)) {
+					islander.getSettings().setBuildBypass(false);
+					Console.print(islander.getName()+"'s joined with Build bypass enabled without permissions, this has been disabled");
+				}
+			}
+			if(islander.getSettings().isEnterBypass()) {
+				if(!islander.getOfflinePlayer().getPlayer().hasPermission(Permissions.Operator.islandEnterBypass)) {
+					islander.getSettings().setEnterBypass(false);
+					Console.print(islander.getName()+"'s joined with Enter bypass enabled without permissions, this has been disabled");
 				}
 			}
 		}

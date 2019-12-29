@@ -78,10 +78,6 @@ public class Skyblock extends JavaPlugin{
 		}
 		//Commands
 		new IslandCommand();
-		// Check player perms on join
-		// Check if player has op perms enabled without having perms
-		//Load island worlds
-//		IslandLoader.loadIslands();
 		//Scoreboard loop
 		if(Extras.Scoreboard.boardEnabled()) {
 			BoardManager.startLoop();

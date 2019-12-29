@@ -453,7 +453,6 @@ public class Inventories {
 			int size = 0;
 			for(ItemStack item : islander.getOfflinePlayer().getPlayer().getInventory().getContents()) {
 				if(item!=null) {
-					Console.print(Integer.toString(size)+"|"+item.getType().name());
 					inv.setItem(size,item);
 				}
 				size++;
