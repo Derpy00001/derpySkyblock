@@ -34,7 +34,6 @@ import me.derpy.skyblock.objects.holders.GuiItems;
 import me.derpy.skyblock.objects.holders.GuiSections;
 import me.derpy.skyblock.objects.main.Island;
 import me.derpy.skyblock.objects.main.Islander;
-import me.derpy.skyblock.utils.Console;
 import net.md_5.bungee.api.ChatColor;
 
 public class Inventories {

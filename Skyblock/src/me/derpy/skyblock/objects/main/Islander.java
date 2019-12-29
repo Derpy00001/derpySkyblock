@@ -169,7 +169,7 @@ public class Islander {
 		}
 	}
 	@SuppressWarnings("unchecked")
-	public void handleInvite(Island island, InvitationResult result, @Nullable InviteData islandInviteData) throws UserHasIslandException, IslandInvitationException {
+	public void handleInvite(Island island, InvitationResult result, InviteData islandInviteData) throws UserHasIslandException, IslandInvitationException {
 		if(!(islandInviteData==null)) {
 			if(!(islandInviteData.getInvitationType()==InvitationType.ISLAND)) {
 				throw new IslandInvitationException("Invalid Invitation Type!\nGiven: "+islandInviteData.getInvitationType().name()+"\nAccepted: "+InvitationType.ISLAND.name());
@@ -289,7 +289,7 @@ public class Islander {
 		}
 	}
 	@SuppressWarnings("unchecked")
-	public void setIsland(Island island) {
+	protected void setIsland(Island island) {
 		Island previsland;
 		try {
 			previsland=getIsland();
