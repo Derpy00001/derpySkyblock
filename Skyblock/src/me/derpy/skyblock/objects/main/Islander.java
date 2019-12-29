@@ -13,8 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.annotation.Nullable;
-
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -289,7 +287,7 @@ public class Islander {
 		}
 	}
 	@SuppressWarnings("unchecked")
-	protected void setIsland(Island island) {
+	public void setIsland(Island island) {
 		Island previsland;
 		try {
 			previsland=getIsland();
